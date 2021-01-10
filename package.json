@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Shopping mall built with JS, Gulp, Nodejs",
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build",
-    "deploy": "gulp deploy"
+    "dev:assets": "gulp dev",
+    "build:assets": "gulp build",
+    "deploy:assets": "gulp deploy",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static' "
   },
   "repository": {
     "type": "git",
@@ -34,5 +35,10 @@
     "gulp-webserver": "0.9.1",
     "node-sass": "5.0.0",
     "uglifyify": "5.0.2"
+  },
+  "dependencies": {
+    "@babel/node": "7.12.10",
+    "dotenv": "8.2.0",
+    "express": "4.17.1"
   }
 }

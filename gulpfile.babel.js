@@ -17,24 +17,24 @@ sass.compiler = require("node-sass");
 //matching
 const routes = {
   pug: {
-    watch: "src/**/*.pug",
-    src: "src/*.pug",
+    watch: "assets/**/*.pug",
+    src: "assets/*.pug",
     //최상단에서 모든 pug
-    dest: "build",
+    dest: "static",
   },
   img: {
-    src: "src/img/*",
-    dest: "build/img",
+    src: "assets/img/*",
+    dest: "static/img",
   },
   scss: {
-    watch: "src/scss/**/*.scss",
-    src: "src/scss/style.scss",
-    dest: "build/css/",
+    watch: "assets/scss/**/*.scss",
+    src: "assets/scss/style.scss",
+    dest: "static/css/",
   },
   js: {
-    watch: "src/js/**/*.js",
-    src: "src/js/main.js",
-    dest: "build/js",
+    watch: "assets/js/**/*.js",
+    src: "assets/js/main.js",
+    dest: "static/js",
   },
 };
 
@@ -43,10 +43,10 @@ const routes = {
 const pug = () =>
   gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
 // src => pipe(pug) => dest
-const clean = () => del(["build"]);
+const clean = () => del(["static"]);
 
 const webserver = () =>
-  gulp.src("build").pipe(ws({ livereload: true, open: true }));
+  gulp.src("static").pipe(ws({ livereload: true, open: true }));
 
 const img = () =>
   gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
@@ -72,7 +72,7 @@ const js = () =>
     )
     .pipe(gulp.dest(routes.js.dest));
 
-const gh = () => gulp.src("build/**/*").pipe(ghPages());
+const gh = () => gulp.src("static/**/*").pipe(ghPages());
 
 const watch = () => {
   gulp.watch(routes.pug.watch, pug);
