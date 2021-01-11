@@ -17,8 +17,8 @@ sass.compiler = require("node-sass");
 //matching
 const routes = {
   pug: {
-    watch: "assets/**/*.pug",
-    src: "assets/*.pug",
+    watch: "views/**/*.pug",
+    src: "views/*.pug",
     //최상단에서 모든 pug
     dest: "static",
   },

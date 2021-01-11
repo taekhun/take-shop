@@ -2,3 +2,5 @@
 
     npm install @babel-node
     npm install express
+
+    yarn add morgan
