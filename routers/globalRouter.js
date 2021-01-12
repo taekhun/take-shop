@@ -7,5 +7,6 @@ const globalRouter = express.Router();
 globalRouter.get(routes.home, home);
 globalRouter.get(routes.join, getJoin);
 globalRouter.get(routes.login, getLogin);
+// globalRouter.get(routes.search, home);
 
 export default globalRouter;

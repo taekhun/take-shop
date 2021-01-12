@@ -16,19 +16,19 @@ sass.compiler = require("node-sass");
 
 //matching
 const routes = {
-  pug: {
-    watch: "views/**/*.pug",
-    src: "views/*.pug",
-    //최상단에서 모든 pug
-    dest: "static",
-  },
+  // pug: {
+  //   watch: "views/**/*.pug",
+  //   src: "views/*.pug",
+  //   //최상단에서 모든 pug
+  //   dest: "static",
+  // },
   img: {
     src: "assets/img/*",
     dest: "static/img",
   },
   scss: {
     watch: "assets/scss/**/*.scss",
-    src: "assets/scss/style.scss",
+    src: "assets/scss/styles.scss",
     dest: "static/css/",
   },
   js: {
@@ -40,9 +40,9 @@ const routes = {
 
 // Tasks
 
-const pug = () =>
-  gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
-// src => pipe(pug) => dest
+// const pug = () =>
+//   gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pug.dest));
+// // src => pipe(pug) => dest
 const clean = () => del(["static"]);
 
 const webserver = () =>
@@ -75,7 +75,7 @@ const js = () =>
 const gh = () => gulp.src("static/**/*").pipe(ghPages());
 
 const watch = () => {
-  gulp.watch(routes.pug.watch, pug);
+  // gulp.watch(routes.pug.watch, pug);
   gulp.watch(routes.img.src, img);
   gulp.watch(routes.scss.watch, styles);
   gulp.watch(routes.js.watch, js);
@@ -83,7 +83,7 @@ const watch = () => {
 
 const prepare = gulp.series([clean, img]);
 
-const assets = gulp.series([pug, styles, js]);
+const assets = gulp.series([styles, js]);
 
 const live = gulp.parallel([webserver, watch]);
 

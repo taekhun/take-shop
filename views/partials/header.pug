@@ -1,14 +1,14 @@
 header.header
-    .header__wrapper
+    .header__wrapper     
         .header__column
             a(href="/")
                 i.fab.fa-youtube
         .header__column
-            form(action="/", method="get")
+            form(action=routes.search, method="get")
                 input(type="text", placeholder="Search by term...", name="term")
         .header__column
             ul
                 li
-                    a(href="/join") Join
+                    a(href=routes.join) Join
                 li
-                    a(href="/login") Log In
+                    a(href=routes.login) Log In
