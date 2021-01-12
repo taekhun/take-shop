@@ -2,7 +2,8 @@ header.header
     .header__wrapper     
         .header__column
             a(href="/")
-                i.fab.fa-youtube
+                i.fas.fa-shopping-bag
+                h1 #{siteName}
         .header__column
             form(action=routes.search, method="get")
                 input(type="text", placeholder="Search by term...", name="term")
