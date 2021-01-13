@@ -1,5 +1,7 @@
 import express from "express";
 import morgan from "morgan";
+import passport from "passport";
+
 import { localsMiddleware } from "./middlewares";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
