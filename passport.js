@@ -12,7 +12,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // //strategy
-// passport.use(User.createStrategy());
+passport.use(User.createStrategy());
 // passport.use(
 //   new GithubStrategy(
 //     {
