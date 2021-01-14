@@ -3,7 +3,7 @@ extends layouts/main
 block content
     .item-detail__container
         .item__box
-            item(src=`/${item.fileUrl}`)
+            image(src=`/${item.fileUrl}`)
         .item__info
             if loggedUser
                 if item.creator.id === loggedUser.id

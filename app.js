@@ -19,6 +19,7 @@ const app = express();
 const CookieStore = MongoStore(session);
 
 app.set("view engine", "pug"); //View-engine setting
+app.use("/uploads", express.static("uploads"));
 app.use("/", express.static("static"));
 app.use("/items", express.static("static"));
 app.use("/users", express.static("static"));
