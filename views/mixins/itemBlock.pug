@@ -1,0 +1,9 @@
+mixin itemBlock(item = {})
+    .itemBlock
+        a(href=routes.itemDetail(item.id))
+            item.itemBlock__thumbnail(src=item.itemFile)
+            h4.itemBlock__title=item.title
+            if item.views === 1
+                h6.itemBlock__views 1 view
+            else
+                h6.itemBlock__views #{item.views} views

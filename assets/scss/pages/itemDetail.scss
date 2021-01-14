@@ -1,0 +1,41 @@
+.item-detail__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .item__info {
+    width: 100%;
+    max-width: 850px;
+    margin-top: 25px;
+    button {
+      width: 100px;
+      margin-bottom: 25px;
+    }
+    .item__author {
+      a {
+        color: #3498db;
+      }
+    }
+    .item__title,
+    .item__views,
+    .item__description {
+      display: block;
+      margin-bottom: 15px;
+    }
+    .item__title {
+      font-size: 22px;
+      font-weight: 300;
+    }
+    .item__views {
+      font-size: 14px;
+    }
+    .item__description {
+      font-size: 16px;
+    }
+  }
+  .item__comments {
+    margin-top: 25px;
+    .item__comment-number {
+      font-size: 18px;
+    }
+  }
+}

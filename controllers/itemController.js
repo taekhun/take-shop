@@ -2,14 +2,13 @@ import routes from "../routes";
 import Item from "../models/Item";
 
 export const home = async (req, res) => {
-  //   try {
-  //     const videos = await Video.find({}).sort({ _id: -1 });
-  //     res.render("home", { pageTitle: "Home", videos });
-  //   } catch (error) {
-  //     console.log(error);
-  //     res.render("home", { pageTitle: "Home", videos: [] });
-  //   }
-  res.render("home", { pageTitle: "Home" });
+  try {
+    const items = await Item.find({}).sort({ _id: -1 });
+    res.render("home", { pageTitle: "Home", items });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", items: [] });
+  }
 };
 
 //Upload Item
@@ -32,4 +31,18 @@ export const postUpload = async (req, res) => {
   req.user.items.push(newItem.id);
   req.user.save();
   res.redirect(routes.itemDetail(newItem.id));
+};
+
+export const itemDetail = async (req, res) => {
+  //   console.log(req.params); // id불러옴
+  const {
+    params: { id },
+  } = req;
+
+  try {
+    const item = await Item.findById(id).populate("creator");
+    res.render("itemDetail", { pageTitle: item.title, item });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };

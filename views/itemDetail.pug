@@ -1,0 +1,25 @@
+extends layouts/main
+
+block content
+    .item-detail__container
+        .item__box
+            item(src=`/${item.fileUrl}`)
+        .item__info
+            if loggedUser
+                if item.creator.id === loggedUser.id
+                    a(href=routes.editItem(item.id))
+                        button Edit item
+            h5.item__title=item.title
+            p.item__description=item.description
+            if item.views === 1
+                span.item__views 1 view
+            else 
+                span.item__views #{item.views} views
+            .item__author
+                |Uploaded by 
+                a(href=routes.userDetail(item.creator.id))=item.creator.name    
+        .item__comments
+            if item.comments.length === 1
+                span.item__comment-number 1 comment
+            else
+                span.item__comment-number #{item.comments.length} comments

@@ -3,7 +3,7 @@ import routes from "../routes";
 import {
   getUpload,
   postUpload,
-  //   itemDetail,
+  itemDetail,
   //   getEditItem,
   //   postEditItem,
   //   deleteItem,
@@ -15,5 +15,8 @@ const itemRouter = express.Router();
 //Upload
 itemRouter.get(routes.upload, onlyPrivate, getUpload);
 itemRouter.post(routes.upload, onlyPrivate, uploadItem, postUpload);
+
+//Item Detail
+itemRouter.get(routes.itemDetail(), itemDetail);
 
 export default itemRouter;
