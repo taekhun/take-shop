@@ -3,6 +3,4 @@ let mapOptions = {
   zoom: 14,
 };
 
-console.log("TEST");
-
-let map = new naver.maps.Map("map", mapOptions);
+let map = new naver.maps.Map("item-map", mapOptions);
