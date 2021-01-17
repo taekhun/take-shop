@@ -1,7 +1,8 @@
 .itemBlock {
-  image {
+  .itemBlock__thumbnail {
     margin-bottom: 10px;
-    max-width: 100%;
+    width: 200px;
+    height: 200px;
   }
   .itemBlock__title {
     font-size: 18px;

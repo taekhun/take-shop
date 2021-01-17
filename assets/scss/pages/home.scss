@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(150px, 1fr));
   grid-gap: 30px;
+  margin: 0 auto;
+  max-width: fit-content;
   .itemBlock:first-child,
   .itemBlock:nth-child(2) {
     grid-column: span 3;

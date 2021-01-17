@@ -46,7 +46,7 @@ const routes = {
 const clean = () => del(["static"]);
 
 const webserver = () =>
-  gulp.src("static").pipe(ws({ livereload: true, open: true }));
+  gulp.src("static").pipe(ws({ livereload: true, open: true, port: 3000 }));
 
 const img = () =>
   gulp.src(routes.img.src).pipe(image()).pipe(gulp.dest(routes.img.dest));
