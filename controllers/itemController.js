@@ -46,3 +46,52 @@ export const itemDetail = async (req, res) => {
     res.redirect(routes.home);
   }
 };
+
+export const getEditItem = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+
+  try {
+    const item = await Item.findById(id);
+    if (item.creator != req.user.id) {
+      throw Error();
+    } else {
+      res.render("editItem", { pageTitle: `Edit ${item.title}`, item });
+    }
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+//Post : 업데이트, redirect
+export const postEditItem = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description },
+  } = req;
+
+  try {
+    console.log(id, title, description);
+    Item.findOneAndUpdate({ _id: id }, { title, description });
+    res.redirect(routes.itemDetail(id));
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
+
+export const deleteItem = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const item = await Item.findById(id);
+    if (item.creator != req.user.id) {
+      throw Error();
+    } else {
+      await Item.findOneAndRemove({ _id: id });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  res.redirect(routes.home);
+};

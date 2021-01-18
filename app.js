@@ -13,20 +13,20 @@ import itemRouter from "./routers/itemRouter";
 import userRouter from "./routers/userRouter";
 import routes from "./routes";
 import "./passport";
-
 const app = express();
 
 const CookieStore = MongoStore(session);
 
 app.set("view engine", "pug"); //View-engine setting
 app.use("/uploads", express.static("uploads"));
-app.use("/", express.static("static"));
-app.use("/items", express.static("static"));
-app.use("/users", express.static("static"));
+// app.use("/items/*", express.static("static"));
+// app.use("/users/*", express.static("static"));
 app.use(cookieParser()); // 쿠키관리
 app.use(bodyParser.json()); // request의 form, json 관리
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+app.use(express.static("static"));
+// app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
